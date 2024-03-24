@@ -1,13 +1,14 @@
 from django.urls import path
 
 from . import views
-from .views import GetUpdateAirline, AirlineListView,UpdateAirline
+from .views import ListAirlineView, AirLineGenericView
 
 urlpatterns = [
-    path("", views.CreateAirline.as_view()),
-    path('<int:pk>',UpdateAirline.as_view()),
-    path("index2", views.index2, name="index2"),
-    path('listall', AirlineListView.as_view()),
-]
 
-""" TO DO"""
+    path("", views.CreateAirlineView.as_view(http_method_names=["post"]), name="airline-create"),
+    path("list/", views.ListAirlineView.as_view(http_method_names=["get"]), name="airline-listall"),
+    path(r'<int:pk>', AirLineGenericView.as_view()),
+
+
+
+]

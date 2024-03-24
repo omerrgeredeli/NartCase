@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'airline',
+    'aircraft',
     'rest_framework_simplejwt',
 ]
 
