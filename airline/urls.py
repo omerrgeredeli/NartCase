@@ -9,3 +9,5 @@ urlpatterns = [
     path("index2", views.index2, name="index2"),
     path('listall', AirlineListView.as_view()),
 ]
+
+""" TO DO"""
