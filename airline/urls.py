@@ -1,12 +1,11 @@
 from django.urls import path
 
 from . import views
-from .views import ListAirlineView, AirLineGenericView
+from .views import AirlineViewSet, AirLineGenericView
 
 urlpatterns = [
 
-    path("", views.CreateAirlineView.as_view(http_method_names=["post"]), name="airline-create"),
-    path("list/", views.ListAirlineView.as_view(http_method_names=["get"]), name="airline-listall"),
+    path("", views.AirlineViewSet.as_view( {"get": "retrieve", "post": "save_airline"} )),
     path(r'<int:pk>', AirLineGenericView.as_view()),
 
 
